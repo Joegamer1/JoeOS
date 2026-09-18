@@ -1,0 +1,6 @@
+packages:
+  - '.'
+# Explicit build-script allowlist; all other dependencies remain restricted.
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
