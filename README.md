@@ -2,7 +2,7 @@
 
 A browser-native personal website where I utilize Next.js, React, and TypeScript to recreate a native Linux Desktop environmen as my personal website.
 
-JoeOS is an ambitious personal website for Joe's life, blog, interests, accomplishments, and professional work, presented through a purpose-built Linux desktop. It is inspired by the depth and delight of projects such as Dustin Brett's daedalOS, while deliberately establishing its own visual language: modern Linux workstation meets security operations center.
+JoeOS is an ambitious personal website for my life, blog, interests, accomplishments, and professional work, presented through a purpose-built Linux desktop. It is inspired by the depth and delight of projects such as Dustin Brett's daedalOS, while deliberately establishing its own visual language: modern Linux workstation meets SOC-esque/"hacker" tropes.
 
 The first slice establishes the art direction, a real interactive terminal, application registry, virtual filesystem seed, responsive mobile layout, and static-export deployment. The long-term project is designed to become a coherent browser operating environment.
 
