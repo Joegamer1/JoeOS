@@ -2,6 +2,8 @@
 
 JoeOS should evolve as a collection of cooperating subsystems, not a single oversized desktop component.
 
+Read `DESIGN_SPEC.md` for the authoritative warm-workstation direction and interaction contracts; use `CONSTRUCTION_PLAN.md` for requirements, task boundaries, and evidence. Older SOC-console language is superseded. This architecture remains ambitious; improving warmth does not remove the window/runtime/filesystem roadmap.
+
 ## Layers
 
 1. **Content domain** — authored public records for personal blog posts, interests, projects, accomplishments, experience, homelab case studies, and contact information.
@@ -43,10 +45,10 @@ tests/                  unit, integration, accessibility, end-to-end
 
 ## Product priorities
 
-JoeOS supports both a personal blog about Joe's life and interests and a professional introduction to his work. Readers must be able to reach articles, accomplishments, projects, and biography without learning terminal commands. The Linux/SOC aesthetic conveys personality; it does not imply a connection to real infrastructure. The initial public release replaces illustrative infrastructure telemetry with actual browser-local window counts and explicit privacy labels.
+JoeOS supports both a personal blog about Joe's life and interests and a professional introduction to his work. Readers must be able to reach articles, accomplishments, projects, and biography without learning terminal commands. The warm Linux-workstation aesthetic conveys personality; it does not imply a connection to real infrastructure. The initial public release replaces illustrative infrastructure telemetry with actual browser-local window counts and explicit privacy labels.
 
 ## Implemented foundation and next slice
 
 `lib/content/pages.ts` supplies the reading routes, content windows, and virtual text files. `lib/os/windows.ts` owns singleton window lifecycle and stacking. `lib/os/commands.ts` calls explicit launch/navigation callbacks and reads the window registry. `ps` is labeled a window registry, not a complete process table. The shell uses normal landmark sections rather than pretending every non-modal window is a modal dialog.
 
-Next: separate process and window identities, add validated geometry/drag/resize/snap and keyboard movement, and versioned session persistence. Then multi-workspaces, notifications, Files, full search, and authored blog/case-study schemas. The initial launcher searches apps only, windows do not yet drag or resize, and no session data is persisted. Mobile shows the focused app with dock switching; desktop layouts remain separate from this mobile presentation.
+The initial warm redesign implements A1/A2 and introductory A3 views. ContentView shares editorial layouts between apps and static pages; the launcher has a native modal focus boundary. Next complete recorded accessibility/content gaps and begin B1 pure geometry, as scoped in the construction plan. Subsequent system work separates process and window identities and adds validated geometry/drag/resize/snap, keyboard movement, and versioned session persistence. Later work includes multi-workspaces, notifications, Files, full search, and authored blog/case-study schemas. The initial launcher searches apps only, windows do not yet drag or resize, and no session data is persisted. Mobile shows the focused app with dock switching; desktop layouts remain separate from this mobile presentation.

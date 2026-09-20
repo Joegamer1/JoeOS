@@ -4,9 +4,19 @@ You are continuing **JoeOS**, a flagship engineering project and personal websit
 
 ## Product thesis
 
-The experience should create the same kind of technical wonder that a deeply built browser desktop creates, but it must have an original identity. Do not copy daedalOS, Windows, its layouts, assets, interaction details, or visual styling. JoeOS is a modern Linux workstation crossed with a restrained cybersecurity/SOC console: dark mineral surfaces, crisp technical typography, sparse phosphor green/cyan signals, fine grid and topology motifs, excellent information density, and quiet confidence. Avoid neon overload, hacker clichés, Matrix rain, generic glass cards, fake code wallpaper, excessive rounded rectangles, and gimmicks without system depth.
+The experience should create the same kind of technical wonder that a deeply built browser desktop creates, but it must have an original identity. Do not copy daedalOS or its Windows aesthetic, layouts, or assets. Familiar desktop conventions are welcome. JoeOS is Joe's warm personal Linux workstation: comfortable reading, calm surfaces, crisp typography, restrained accents, and a subtle hacker wink through genuine system depth. It is not a dense SOC dashboard. The implemented Workbench Light theme uses an oatmeal desktop, paper-colored windows, dark text, and restrained clay/teal accents; use semantic tokens so the palette can evolve. Avoid neon overload, hacker clichés, Matrix rain, fake telemetry, generic glass cards, fake code wallpaper, and gimmicks without system depth.
+
+Read `docs/DESIGN_SPEC.md` for the detailed visual and interaction contracts and `docs/CONSTRUCTION_PLAN.md` for scoped work packets and progress evidence. Those documents expand this brief. Do not implement the whole roadmap merely because it appears here. Follow the user's current task and distinguish current behavior from target requirements.
 
 The site is Joe's public personal website: a place for blogging about life, interests, and experiences, and a professional introduction to his accomplishments, skills, and work. Personal writing and professional case studies are equally important. The desktop is the presentation layer for that content.
+
+### Originality and anti-template direction
+
+Do not produce the default AI-generated portfolio: oversized slogan hero, gradient-highlighted word, two CTA pills, glowing background blobs, bento cards, skill badges, arbitrary statistics, and a closing sales pitch. Do not merely recolor the current hacker dashboard. Remove neon green dominance, outlined display headlines, decorative grids, tiny uppercase console labels, and security-status clutter. The terminal may be technically rich without dictating the entire site's appearance.
+
+Build a personal working environment with content-specific views: a short welcome note, a project index with meaningful metadata, a journal organized around titles and dates, and case studies with evidence and captions. Share window chrome and navigation, not one generic card layout across every app. Warmth must come from readable surfaces and Joe's approved writing, not manufactured quirkiness, invented memories, or decorative sticky notes.
+
+Before substantial visual changes, state the visitor's task, the actual content available, and two or three compositional decisions that serve it. Afterward, check whether the result could pass for a startup landing page if the name were replaced. If yes, revise the composition, not just the accent color. Familiar controls are good; novelty must not make navigation obscure. Follow the detailed anti-template contract in `docs/DESIGN_SPEC.md` and report its originality checks in visual-task handoffs.
 
 ### Public website / private systems boundary
 
@@ -62,7 +72,7 @@ For every slice: inspect existing code first, state the invariant being added, i
 
 The result is successful when a visitor first sees a distinctive, credible operating environment; then discovers the windows, files, terminal, search, processes, workspaces, and homelab are connected rather than staged; then leaves with a clear understanding of Joe's engineering judgment and work. Visual spectacle opens the door. Coherent systems earn the respect.
 
-Begin by auditing the current repository against these requirements. Then implement the next missing vertical slice—starting with the kernel/app/window foundation—without replacing the product with a simplified mockup.
+Begin by auditing the current repository against the selected task and these requirements. If Joe asks for the next step without choosing a subsystem, inspect the latest construction record: the initial warm redesign implements A1/A2 and introductory A3 views. Address recorded gaps or proceed to B1 pure geometry before drag/resize. Preserve the ambitious system roadmap without turning a bounded task into an untested rewrite. Do not replace the product with a simplified mockup.
 
 ## Optional showcase: Marathon (1994)
 

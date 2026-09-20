@@ -10,7 +10,8 @@ test("paths resolve dot segments and cannot escape the virtual root", () => {
   assert.equal(normalizePath("./joe/../joe", "/home"), "/home/joe");
 });
 test("windows open once, restore, focus, maximize and close", () => {
-  let state = windowReducer(initialWindows, { type: "open", appId: "about", title: "About" });
+  const terminalState = [{ ...initialWindows[0], id: "terminal", appId: "terminal" as const, title: "Terminal" }];
+  let state = windowReducer(terminalState, { type: "open", appId: "about", title: "About" });
   state = windowReducer(state, { type: "minimize", id: "about" });
   assert.equal(state[1].minimized, true);
   state = windowReducer(state, { type: "open", appId: "about", title: "About" });
@@ -20,6 +21,11 @@ test("windows open once, restore, focus, maximize and close", () => {
   state = windowReducer(state, { type: "focus", id: "terminal" });
   assert.ok(state[0].zIndex > state[1].zIndex);
   assert.equal(windowReducer(state, { type: "close", id: "about" }).length, 1);
+});
+test("first visit opens About, not an unsolicited terminal", () => {
+  assert.equal(initialWindows.length, 1);
+  assert.equal(initialWindows[0].appId, "about");
+  assert.equal(initialWindows[0].title, "About");
 });
 test("terminal navigates shared files and launches through callback", () => {
   let opened = "";

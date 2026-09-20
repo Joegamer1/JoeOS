@@ -2,9 +2,9 @@ import { BookOpen, FolderKanban, FlaskConical, TerminalSquare, UserRound } from 
 import type { AppDefinition } from "./types";
 
 export const appRegistry: AppDefinition[] = [
-  { id: "terminal", name: "Terminal", description: "Command JoeOS directly", icon: TerminalSquare, singleton: true },
-  { id: "homelab", name: "Homelab", description: "Public engineering case studies", icon: FlaskConical },
+  { id: "about", name: "About", description: "A personal introduction", icon: UserRound },
   { id: "projects", name: "Projects", description: "Systems built and shipped", icon: FolderKanban },
-  { id: "about", name: "Identity", description: "About, experience, and contact", icon: UserRound },
   { id: "blog", name: "Journal", description: "Personal stories and technical writing", icon: BookOpen },
+  { id: "homelab", name: "Homelab", description: "Public engineering case studies", icon: FlaskConical },
+  { id: "terminal", name: "Terminal", description: "Explore with a command", icon: TerminalSquare, singleton: true },
 ];

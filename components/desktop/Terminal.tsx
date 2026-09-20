@@ -4,7 +4,7 @@ import { FormEvent, useRef, useState } from "react";
 import { executeCommand } from "@/lib/os/commands";
 import type { AppId, WindowState } from "@/lib/os/types";
 
-type Entry = { command?: string; output: string[] };
+type Entry = { command?: string; cwd?: string; output: string[] };
 
 export function Terminal({ open, windows }: { open: (id: AppId) => void; windows: WindowState[] }) {
   const [cwd, setCwd] = useState("/home/joe");
@@ -16,19 +16,19 @@ export function Terminal({ open, windows }: { open: (id: AppId) => void; windows
     event.preventDefault();
     const command = input.trim();
     if (!command) return;
-    setEntries(command === "clear" ? [] : [...entries, { command, output: executeCommand(command, { cwd, setCwd, open, windows }) }]);
+    setEntries(command === "clear" ? [] : [...entries, { command, cwd, output: executeCommand(command, { cwd, setCwd, open, windows }) }]);
     setInput("");
   }
 
-  return <section className="terminal" onClick={() => field.current?.focus()} aria-label="JoeOS terminal">
+  return <section className="terminal" aria-label="JoeOS terminal">
     <div className="terminal-scroll" aria-live="polite">
       {entries.map((entry, index) => <div className="terminal-entry" key={index}>
-        {entry.command && <div><span className="prompt">joe@joeos</span><span className="path">:~$</span> {entry.command}</div>}
+        {entry.command && <div><span className="prompt">visitor@joeos</span><span className="path">:{entry.cwd}$</span> {entry.command}</div>}
         {entry.output.map((line, lineIndex) => <div key={lineIndex}>{line}</div>)}
       </div>)}
       <form onSubmit={submit} className="terminal-form">
         <label htmlFor="terminal-command"><span className="prompt">visitor@joeos</span><span className="path">:{cwd}$</span></label>
-        <input id="terminal-command" ref={field} autoComplete="off" autoFocus value={input} onChange={(e) => setInput(e.target.value)} aria-label="Terminal command" />
+        <input id="terminal-command" ref={field} autoComplete="off" spellCheck={false} value={input} onChange={(e) => setInput(e.target.value)} aria-label="Terminal command" />
       </form>
     </div>
   </section>;

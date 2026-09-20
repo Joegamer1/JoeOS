@@ -1,8 +1,8 @@
 # JoeOS
 
-A browser-native personal website where I utilize Next.js, React, and TypeScript to recreate a native Linux Desktop environmen as my personal website.
+A browser-native personal website where I utilize Next.js, React, and TypeScript to recreate a native Linux desktop environment as my personal website.
 
-JoeOS is an ambitious personal website for my life, blog, interests, accomplishments, and professional work, presented through a purpose-built Linux desktop. It is inspired by the depth and delight of projects such as Dustin Brett's daedalOS, while deliberately establishing its own visual language: modern Linux workstation meets SOC-esque/"hacker" tropes.
+JoeOS is an ambitious personal website for my life, blog, interests, accomplishments, and professional work, presented through a purpose-built Linux desktop. It is inspired by the depth and delight of projects such as Dustin Brett's daedalOS, while deliberately establishing its own visual language: a warm personal Linux workstation, not a hacker dashboard.
 
 The first slice establishes the art direction, a real interactive terminal, application registry, virtual filesystem seed, responsive mobile layout, and static-export deployment. The long-term project is designed to become a coherent browser operating environment.
 
@@ -11,7 +11,8 @@ The first slice establishes the art direction, a real interactive terminal, appl
 - **Convincing systems, not decorative chrome.** Windows, processes, files, commands, search, and applications should share real state.
 - **One content graph, many interfaces.** A project is the same object whether opened from Files, Terminal, Search, or Projects.
 - **Technical depth serves discovery.** The spectacle invites exploration; the content proves the work.
-- **Linux/SOC, not Windows cosplay.** Dense telemetry, restrained phosphor accents, purposeful geometry, and excellent typography define JoeOS.
+- **A personal Linux workstation.** Warm surfaces, readable typography, restrained accents, and coherent interactions define JoeOS; a particular green palette does not.
+- **Purposeful, not templated.** No generic hero/bento/CTA portfolio funnel or decorative hacker dashboard. Apps organize real content in appropriate ways; familiar controls remain familiar.
 - **Accessible underneath the illusion.** Keyboard navigation, reduced motion, semantic HTML, focus management, readable contrast, and crawlable content are release requirements.
 - **Mobile is a reinterpretation.** Small screens become a command center/app switcher rather than a shrunken desktop.
 
@@ -32,6 +33,10 @@ The first slice establishes the art direction, a real interactive terminal, appl
 | Web platform | Static-first SEO routes, accessibility escape hatch, responsive mobile shell, performance budgets |
 
 See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for system boundaries and [`CODEX_BUILD_PROMPT.md`](CODEX_BUILD_PROMPT.md) for the master implementation brief.
+
+## Continuing construction
+
+Start with the detailed [`docs/DESIGN_SPEC.md`](docs/DESIGN_SPEC.md): product intent, semantic theme tokens, typography, app and window contracts, responsive behavior, accessibility, privacy, performance, and reusable implementation/review prompts. Use [`docs/CONSTRUCTION_PLAN.md`](docs/CONSTRUCTION_PLAN.md) to choose a bounded task, track requirements, and record evidence and handoffs. The initial warm redesign implements Workbench Light and About-first entry; the larger OS roadmap remains in progress.
 
 ## Start locally
 
