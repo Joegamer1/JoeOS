@@ -1,46 +1,42 @@
 # JoeOS
 
-A browser-native personal website where I utilize Next.js, React, and TypeScript to recreate a native Linux desktop environment as my personal website.
+JoeOS is my personal website, built with Next.js, React, and TypeScript to look and work like a Linux desktop. I wanted a place for my projects and writing that I could also keep building as a project of its own.
 
-JoeOS is an ambitious personal website for my life, blog, interests, accomplishments, and professional work, presented through a purpose-built Linux desktop. It is inspired by the depth and delight of projects such as Dustin Brett's daedalOS, while deliberately establishing its own visual language: a warm personal Linux workstation, not a hacker dashboard.
+You can open apps, switch between windows, use the terminal, or read the content as ordinary web pages. Projects such as [daedalOS](https://github.com/DustinBrett/daedalOS) got me interested in how much of a desktop could work in a browser.
 
-The first slice establishes the art direction, a real interactive terminal, application registry, virtual filesystem seed, responsive mobile layout, and static-export deployment. The long-term project is designed to become a coherent browser operating environment.
+[Open JoeOS](https://joegamer1.github.io/JoeOS/)
 
-## Product principles
+## Current state
 
-- **Convincing systems, not decorative chrome.** Windows, processes, files, commands, search, and applications should share real state.
-- **One content graph, many interfaces.** A project is the same object whether opened from Files, Terminal, Search, or Projects.
-- **Technical depth serves discovery.** The spectacle invites exploration; the content proves the work.
-- **A personal Linux workstation.** Warm surfaces, readable typography, restrained accents, and coherent interactions define JoeOS; a particular green palette does not.
-- **Purposeful, not templated.** No generic hero/bento/CTA portfolio funnel or decorative hacker dashboard. Apps organize real content in appropriate ways; familiar controls remain familiar.
-- **Accessible underneath the illusion.** Keyboard navigation, reduced motion, semantic HTML, focus management, readable contrast, and crawlable content are release requirements.
-- **Mobile is a reinterpretation.** Small screens become a command center/app switcher rather than a shrunken desktop.
+The project is at `0.1.0-alpha`. These parts work:
 
-## Architecture roadmap
+- App registry and singleton windows: open, focus, minimize, restore, maximize, and close
+- App search with Cmd/Ctrl+K
+- A browser-local terminal with `help`, `ls`, `cd`, `pwd`, `cat`, `open`, `clear`, `whoami`, `neofetch`, and `ps`
+- Shared content for apps, virtual files, and direct reading pages
+- A mobile layout that shows one app at a time
+- Tests and a GitHub Pages deployment workflow
 
-| System | Direction |
-| --- | --- |
-| Window manager | Multi-instance windows, focus/z-order, drag, resize, snap, minimize/maximize, constraints, keyboard controls |
-| App runtime | Typed registry, lifecycle hooks, capability declarations, deep links, lazy loading |
-| Virtual filesystem | Typed nodes, mounts, permissions-like metadata, shared content adapters, IndexedDB persistence |
-| Terminal | Parser, quoted arguments, pipes where useful, history, autocomplete, aliases, man pages, filesystem-aware commands |
-| Process manager | Runtime process table, app/window relationship, resource simulation, kill/restart actions |
-| Shell | Launcher, global search, command palette, notifications, quick settings, keyboard shortcut service |
-| Workspaces | Multiple desktops, window assignment, overview mode, persistent layouts |
-| Homelab showcase | Authored case studies, explanatory diagrams, selected screenshots, lessons learned, and accomplishments; no private connections |
-| Journal | Personal and technical blogging, article routes, tags, archives, RSS, and direct reading mode |
-| Persistence | Versioned local schema, migrations, saved preferences, sessions, layouts, notes, and recovery mode |
-| Web platform | Static-first SEO routes, accessibility escape hatch, responsive mobile shell, performance budgets |
+Dragging, resizing, snapping, multiple workspaces, session persistence, and terminal history are still planned. The journal has no published posts yet. More about me and my projects will be added as I work on the site.
 
-See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for system boundaries and [`CODEX_BUILD_PROMPT.md`](CODEX_BUILD_PROMPT.md) for the master implementation brief.
+## Design and structure
 
-## Continuing construction
+I chose a light desktop with paper-colored windows, dark text, and teal and clay accents. The About window opens first, and the dock keeps the other sections close by. On a phone, app switching takes the place of overlapping windows.
 
-Start with the detailed [`docs/DESIGN_SPEC.md`](docs/DESIGN_SPEC.md): product intent, semantic theme tokens, typography, app and window contracts, responsive behavior, accessibility, privacy, performance, and reusable implementation/review prompts. Use [`docs/CONSTRUCTION_PLAN.md`](docs/CONSTRUCTION_PLAN.md) to choose a bounded task, track requirements, and record evidence and handoffs. The initial warm redesign implements Workbench Light and About-first entry; the larger OS roadmap remains in progress.
+The content lives in `lib/content/pages.ts`. The reading pages, content apps, and virtual files all use it. Window state and terminal commands live in `lib/os`, separate from the desktop components.
 
-## Start locally
+The next system work is window geometry, followed by dragging, resizing, and snapping. Later work includes process management, persisted sessions, notifications, a fuller filesystem, and published articles.
 
-Requirements: Node.js 22 and pnpm 11.19.0 (pinned in `package.json`).
+- [Architecture](docs/ARCHITECTURE.md)
+- [Design specification](docs/DESIGN_SPEC.md)
+- [Construction plan and progress](docs/CONSTRUCTION_PLAN.md)
+- [AI implementation brief](CODEX_BUILD_PROMPT.md)
+
+I also have [notes on running Marathon in the browser](docs/MARATHON.md). That is an idea to investigate later; it isn't part of the app yet.
+
+## Run locally
+
+Use Node.js 22 and pnpm 11.19.0, as pinned in `package.json`.
 
 ```bash
 corepack enable
@@ -48,37 +44,27 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Then open `http://localhost:3000`. Useful checks:
+Open `http://localhost:3000`.
+
+## Checks
 
 ```bash
 pnpm test
 pnpm typecheck
 pnpm lint
-pnpm build
+GITHUB_ACTIONS=true GITHUB_REPOSITORY=Joegamer1/JoeOS pnpm build
 ```
 
-## GitHub Pages
+## Deployment
 
-The project uses Next.js static export, so GitHub Pages is practical as long as product data remains build-time or browser-local. Every push to `main` builds and deploys `out/` through GitHub Actions. In repository **Settings → Pages**, select **GitHub Actions** as the source if it is not selected automatically.
+JoeOS uses Next.js static export. Pushes to `main` run the checks and deploy `out/` to GitHub Pages. In **Settings → Pages**, the source is **GitHub Actions**.
 
-Project Pages base paths are handled during Actions builds from `GITHUB_REPOSITORY`. For a future custom domain, set the repository variable `PAGES_BASE_PATH` to `/` and update `SITE_URL`; see [deployment notes](docs/DEPLOYMENT.md). Blog posts and case studies can be published at build time. A future public feature requiring request-time APIs may warrant another host; connecting to private infrastructure is outside the product's scope on every host.
+The Actions build handles the `/JoeOS` base path. Custom domain settings and rollback steps are in [DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
-## Security and privacy
+## Privacy
 
-JoeOS never connects to Joe's homelab, Home Assistant, home network, or private services—not even through a read-only proxy or owner-only mode. Homelab content is intentionally authored for public presentation. Never publish secrets or private infrastructure details. See [`SECURITY.md`](SECURITY.md).
-
-An optional [Marathon (1994) feasibility brief](docs/MARATHON.md) describes a future browser game app. It has not been implemented.
-
-## Current status
-
-JoeOS is at `0.1.0-alpha`: a tested foundation, not the completed OS.
-
-- Working: typed app registry; reducer-based singleton windows with focus, minimize/restore, maximize, and close; app search (Cmd/Ctrl+K); browser-local terminal (`help`, `ls`, `cd`, `pwd`, `cat`, `open`, `clear`, `whoami`, `neofetch`, `ps`); shared public content and read-only virtual files; static reading routes; mobile active-app layout; automated tests and deployment.
-- Planned: dragging, resizing, snapping, multi-instance apps, full process lifecycle, persisted sessions, notifications, workspaces, command parsing/history/autocomplete, global content search, authored articles/RSS, interactive homelab case studies, and deeper accessibility testing. These are roadmap commitments, not claims of shipped features.
-- No fake live telemetry, credentials, private integration endpoints, or game assets are included. Biography, article, and accomplishment sections explicitly identify content not yet published.
-
-Repository: [Joegamer1/JoeOS](https://github.com/Joegamer1/JoeOS). Target site: [JoeOS on GitHub Pages](https://joegamer1.github.io/JoeOS/).
+JoeOS has no connection to my homelab, Home Assistant, or private services. The homelab section is for writeups and diagrams I choose to publish. See [SECURITY.md](SECURITY.md) for the rules that apply to code, content, and builds.
 
 ## License
 
-Source available for portfolio review. Add a license before accepting outside contributions or reuse.
+The source is available to read. No reuse license has been added.

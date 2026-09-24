@@ -60,7 +60,7 @@ export function Desktop() {
 
     <aside className="desktop-places" aria-label="Desktop shortcuts"><p>On this desktop</p>{appRegistry.filter(a => a.id !== "terminal").map(app => <button key={app.id} onClick={() => open(app.id)}><app.icon size={25} strokeWidth={1.4} aria-hidden="true" /><span>{app.name}</span></button>)}<Link href="/read/about/"><BookOpen size={24} strokeWidth={1.4} aria-hidden="true" /><span>Reading mode</span></Link></aside>
 
-    {!windows.some(w => !w.minimized) && <section className="empty-desktop"><h1>Make yourself at home.</h1><p>Open an app below, or read the site as ordinary pages.</p><button className="text-button" onClick={() => open("about")}>Open About <ArrowUpRight size={16} /></button><Link href="/read/about/">Reading mode</Link></section>}
+    {!windows.some(w => !w.minimized) && <section className="empty-desktop"><h1>Open an app to get started.</h1><p>Open an app below, or read the site as ordinary pages.</p><button className="text-button" onClick={() => open("about")}>Open About <ArrowUpRight size={16} /></button><Link href="/read/about/">Reading mode</Link></section>}
 
     <div className="window-layer">{windows.map((w, index) => {
       const app = appRegistry.find(item => item.id === w.appId)!;
@@ -71,10 +71,10 @@ export function Desktop() {
     })}</div>
 
     {searchOpen && <AppLauncher onOpen={open} onDismiss={dismissSearch} />}
-    <div className="desktop-bottom"><span className="desktop-note">A website, with room to explore.</span><nav className="dock" aria-label="Application launcher">{appRegistry.map(app => {
+    <div className="desktop-bottom"><span className="desktop-note">Use the dock to switch apps.</span><nav className="dock" aria-label="Application launcher">{appRegistry.map(app => {
       const instance = windows.find(w => w.appId === app.id);
       const selected = instance && !instance.minimized && instance.zIndex === active;
       return <button ref={element => { if (element) dockElements.current.set(app.id, element); else dockElements.current.delete(app.id); }} key={app.id} className={selected ? "active" : ""} onClick={() => open(app.id)} aria-label={`Open ${app.name}`} aria-pressed={!!selected}><app.icon size={23} strokeWidth={1.5} aria-hidden="true" /><span>{app.name}</span>{instance && <i className="running-mark" aria-hidden="true" />}</button>;
-    })}</nav><a className="source-link" href="https://github.com/Joegamer1/JoeOS">Built in the open <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+    })}</nav><a className="source-link" href="https://github.com/Joegamer1/JoeOS">View on GitHub <ArrowUpRight size={14} aria-hidden="true" /></a></div>
   </main>;
 }

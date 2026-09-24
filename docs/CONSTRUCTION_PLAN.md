@@ -1,4 +1,4 @@
-# JoeOS living construction plan
+# JoeOS construction plan
 
 Baseline recorded September 20, 2026. Companion to [DESIGN_SPEC.md](DESIGN_SPEC.md).
 
@@ -207,14 +207,14 @@ Stop and request a decision if completion would require private connectivity, un
 - Accepted direction: Linux-inspired desktop with familiar behavior, warmth, readability, and subtle hacker references. Color scheme is flexible.
 - Proposed implementation default: Workbench charcoal/ivory/teal/amber tokens and the sizing values in DESIGN_SPEC. Exact colors still require rendered validation.
 - Rejected direction: Windows imitation, dense SOC dashboard, unreadable microtext, and green as an unavoidable global brand constraint.
-- Preserved ambition: real window/app/process systems, filesystem, command system, persistence, search, notifications, workspaces, personal publishing, and advanced authored homelab exhibit.
+- Remaining system plans: real window/app/process systems, filesystem, command system, persistence, search, notifications, workspaces, personal publishing, and advanced authored homelab exhibit.
 - Privacy invariant: no private integrations, even read-only, owner-only, or build-time.
 - This task changes documentation only. Next recommended construction task: A1.
 
 ### 2026-09-20 — Reject hacker styling and generic generated layouts
 
 - User feedback: the live black-and-green hacker aesthetic should be dropped; future construction should avoid typical AI website-building tropes.
-- Decision: originality must come from purposeful workstation composition, content-specific app layouts, approved personal material, and real interactions. A palette swap does not finish the redesign.
+- Decision: use desktop controls, layouts suited to each app, approved personal material, and working interactions. A palette swap does not finish the redesign.
 - Remove in implementation: green glow, decorative grid, outlined slogan headline, and console-status clutter. Do not replace them with a generic startup hero/bento/CTA funnel.
 - Warmth remains required; the exact palette and dark-versus-light content surfaces are flexible. Avoid manufactured nostalgia or invented personal facts.
 - Scope of this update: local prompts and documentation only; no UI changes or deployment. VIS-03 and A3 track the composition work separately from A1 token/readability work.
@@ -227,10 +227,16 @@ Stop and request a decision if completion would require private connectivity, un
 - Requirements: VIS-01/03 and NAV-01 verified for this initial implementation. VIS-02, MOBILE-01, and A11Y-01 remain partial pending broader manual device/accessibility checks.
 - Files: global theme/styles, Desktop, AppLauncher, ContentView, Terminal, reading route, metadata, app registry, initial windows, tests, and aligned design documentation. Next.js refreshed its generated declarations and TypeScript JSX configuration during the build; no dependency versions changed.
 - Before → after: black/green console with a giant slogan and terminal-first entry → oatmeal desktop, paper-colored About window, content-specific project/journal/case-study views, persistent labeled dock, and direct reading links.
-- Decisions: lighter content surfaces support reading; ordinary app navigation replaces status clutter; Projects uses an index and Journal a truthful empty state. Shared chrome stays consistent. No invented articles, case studies, biography, or metrics.
+- Decisions: lighter content surfaces support reading; ordinary app navigation replaces status clutter; Projects uses an index and Journal says when no posts are published. Shared chrome stays consistent. No invented articles, case studies, biography, or metrics.
 - Preserved: singleton launch, focus, minimize/restore, maximize/restore, close, virtual files, command execution, static reading URLs, and `/JoeOS` deployment paths. Added focus return to dock/search trigger, input focus on search opening, arrow-key selection, no-match copy, and no unsolicited terminal autofocus.
 - Automated evidence: `pnpm test` passed 18 tests (4 OS/entry tests and 14 theme-contrast pair checks); `pnpm lint`, `pnpm typecheck`, and Pages-path `pnpm build` passed locally. Local Node runtime was v24; CI uses repository-configured Node 22.
 - Browser evidence: production export served under `/JoeOS/`; desktop appearance, project window controls, terminal `cat about.txt` and `open blog`, search no-match/Escape focus return, phone app switching, About direct-route reload. At 390px and 320px viewport widths, document width matched viewport width. At the scrolled phone page end, final reading link was above the fixed dock. No captured browser console errors.
 - Originality review: first viewport is an actual About window, not a hero funnel. The project entry, journal status section, and homelab document differ by purpose. No glass cards, glow, decorative grids, fake counters, or fabricated personal artifacts.
 - Limitations: no real mobile keyboard/device or screen-reader session tested; 200% browser zoom and full performance budgets not verified. No new drag/resize/persistence or article publishing system. These remain explicit follow-up work, not completed requirements.
 - Next smallest task: collect Joe's feedback on the actual visual result; then complete manual accessibility checks or implement B1 pure geometry without a runtime rewrite.
+
+### 2026-09-24 — Public writing revision
+
+Rewrote the README, About, Projects, Homelab, and Journal text in first person. Shortened generic language in the design and implementation notes. Layouts, controls, and privacy restrictions are unchanged. The biography details come from the existing public GitHub profile and homelab documentation.
+
+Validation: 18 tests, lint, type checks, and the Pages-path production build passed. The About window was checked in a local browser preview. The text uses the existing content areas and controls; no new layouts or decorative content were added. This pass did not include a physical phone or screen-reader test.

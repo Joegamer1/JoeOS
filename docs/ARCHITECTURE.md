@@ -1,8 +1,8 @@
 # JoeOS architecture
 
-JoeOS should evolve as a collection of cooperating subsystems, not a single oversized desktop component.
+I keep content, window state, commands, and app views in separate modules so each can be tested on its own.
 
-Read `DESIGN_SPEC.md` for the authoritative warm-workstation direction and interaction contracts; use `CONSTRUCTION_PLAN.md` for requirements, task boundaries, and evidence. Older SOC-console language is superseded. This architecture remains ambitious; improving warmth does not remove the window/runtime/filesystem roadmap.
+Read `DESIGN_SPEC.md` for the authoritative warm-workstation direction and interaction contracts; use `CONSTRUCTION_PLAN.md` for requirements, task boundaries, and evidence. Older SOC-console language is superseded. The window, runtime, and filesystem work remains on the roadmap.
 
 ## Layers
 
@@ -45,7 +45,7 @@ tests/                  unit, integration, accessibility, end-to-end
 
 ## Product priorities
 
-JoeOS supports both a personal blog about Joe's life and interests and a professional introduction to his work. Readers must be able to reach articles, accomplishments, projects, and biography without learning terminal commands. The warm Linux-workstation aesthetic conveys personality; it does not imply a connection to real infrastructure. The initial public release replaces illustrative infrastructure telemetry with actual browser-local window counts and explicit privacy labels.
+JoeOS supports both a personal blog about Joe's life and interests and a professional introduction to his work. Readers must be able to reach articles, accomplishments, projects, and biography without learning terminal commands. The desktop runs in the browser and has no connection to private infrastructure. The initial public release replaces illustrative infrastructure telemetry with actual browser-local window counts and explicit privacy labels.
 
 ## Implemented foundation and next slice
 

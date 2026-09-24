@@ -21,13 +21,13 @@ When a task is ambiguous, follow the defaults. Ask when a choice changes privacy
 
 ## 2. Product identity
 
-**JoeOS is Joe's personal Linux-inspired workstation, made public as a website. It is warm, readable, technically deep, and quietly playful.**
+**JoeOS is my personal website, presented as a Linux-style desktop.**
 
-It serves two equally legitimate purposes: a personal place for life, interests, and writing; and a professional introduction to Joe's projects, accomplishments, and engineering judgment. Neither should feel like an appendix to the other.
+I want space for my writing and interests as well as my projects and work. Both should be easy to find.
 
-The ambition is an operating environment whose windows, apps, terminal, files, search, and processes genuinely cooperate. The reference to daedalOS is about depth and discovery, not its Windows aesthetic, assets, or implementation.
+Windows, apps, the terminal, files, search, and processes should use shared state. The reference to daedalOS is about depth and discovery, not its Windows aesthetic, assets, or implementation.
 
-The hacker wink belongs in the details: a capable shell, helpful man pages, a thoughtful boot sequence, keyboard fluency, and discoverable jokes. It must not come from pretending the visitor is accessing classified systems.
+Use the shell, man pages, keyboard shortcuts, and optional Easter eggs for the desktop details. Do not imply that visitors are accessing a secure or classified system.
 
 ### Priority order when requirements compete
 
@@ -37,7 +37,7 @@ The hacker wink belongs in the details: a capable shell, helpful man pages, a th
 4. Personality and visual polish.
 5. Optional effects and Easter eggs.
 
-Do not sacrifice items higher in this list to achieve items lower in it. Ambition means greater depth, not more clutter.
+Do not sacrifice items higher in this list to achieve items lower in it. Add complexity only when it supports an implemented feature.
 
 ### Design decisions already made
 
@@ -55,7 +55,7 @@ Do not sacrifice items higher in this list to achieve items lower in it. Ambitio
 | --- | --- | --- |
 | Professional visitor | Open About or Projects without typing a command | Understand Joe's interests, contribution, and evidence of work |
 | Returning reader | Open a direct article link | Read immediately, without a boot ceremony or desktop puzzle |
-| Curious technical visitor | Open Terminal, Files, or a second window | Discover consistent shared state and genuinely working interactions |
+| Curious technical visitor | Open Terminal, Files, or a second window | Discover consistent shared state and working interactions |
 | Phone visitor | Tap a labeled app or reading link | Read comfortably and switch apps without dragging tiny windows |
 | Keyboard/screen-reader visitor | Use the skip link or accessible launcher | Reach the same content and actions without pointer gestures |
 
@@ -103,9 +103,9 @@ Components reference tokens rather than raw hex values. Keep palette definitions
 
 Default to a quiet solid desktop surface. Remove the current decorative grid, green glow, and outlined headline. An intentionally selected wallpaper may be considered later; do not add a gradient, texture, or atmospheric effect merely to fill empty space. Prefer mostly opaque content surfaces over heavy blur. Distinguish the active window through a clear title bar/border and modest shadow; inactive content remains readable.
 
-### Anti-template contract: distinctiveness through purpose
+### Layout requirements
 
-Joe explicitly rejected the black-and-green hacker treatment after seeing the alpha. Do not preserve it as the default on the assumption that Linux implies green-on-black. The earlier Workbench palette is a proposed starting point, not a requirement to keep every surface dark. A lighter content surface may be appropriate; test hierarchy and readability rather than defending a palette. This decision preserves the OS ambition, not the current visual composition.
+Joe explicitly rejected the black-and-green hacker treatment after seeing the alpha. Do not preserve it as the default on the assumption that Linux implies green-on-black. The earlier Workbench palette is a proposed starting point, not a requirement to keep every surface dark. A lighter content surface may be appropriate; test hierarchy and readability rather than defending a palette. The desktop features remain on the roadmap; the existing layout can change.
 
 The following are project-specific design constraints, not claims that these patterns are inherently bad on every website:
 
@@ -133,7 +133,7 @@ No blanket ban on cards, gradients, symmetry, icons, or familiar components is i
 - **Homelab:** show an explanatory document with a diagram when approved content warrants one. Do not turn case studies into monitoring tiles.
 - **Shell:** use one recognizable family of title bars, controls, menus, and focus treatments. Apps may have different editorial layouts without becoming unrelated miniature websites.
 
-Distinctive details should emerge from Joe's real interests and material over time. A useful file path, a genuine development note, an annotated public diagram, or a well-designed terminal interaction earns its place. “Make it unique” is not permission to invent facts, change the stack, copy another portfolio, or add expensive effects.
+Use my writing, development notes, diagrams, and terminal interactions as they become available. “Make it unique” is not permission to invent facts, change the stack, copy another portfolio, or add expensive effects.
 
 #### Originality review for each visual task
 
@@ -205,7 +205,7 @@ Every published project should explain the problem, Joe's role, constraints, dec
 
 Personal and technical writing share one publication system. Provide title, summary, date, tags, readable article body, stable URL, and optional updated date. Later: tags, archives, RSS, related writing. Only advertise a feature when it exists.
 
-Direct URLs must be normal static reading pages, not a query string that only works after launching the desktop. Draft exclusion happens before files enter public assets, bundles, indexes, feeds, or virtual files. A public Git repository is already public: never commit genuinely private drafts to it and assume a `draft` flag hides their source.
+Direct URLs must be normal static reading pages, not a query string that only works after launching the desktop. Draft exclusion happens before files enter public assets, bundles, indexes, feeds, or virtual files. A public Git repository is already public: never commit private drafts to it and assume a `draft` flag hides their source.
 
 ### Homelab Showcase
 
@@ -301,7 +301,7 @@ Product acceptance targets—not a certification claim:
 - Usable at 200% zoom and a 320 CSS-pixel viewport. Test reduced motion and a manual screen-reader reading path.
 - Long articles are readable without animation, sound, or interacting with OS controls.
 
-Voice: friendly, specific, and quietly confident. Say “No posts published yet,” not “Database unavailable.” Say “Saved on this device,” not “Synchronized,” unless genuine synchronization exists. Keep technical language where it explains work, not where it merely adds mystique.
+Write public copy in first person, using plain descriptions of what I built, why I chose it, and what I learned. Say “No posts published yet,” not “Database unavailable.” Say “Saved on this device,” not “Synchronized,” unless genuine synchronization exists. Use technical terms when they explain the work. Avoid slogans, self-praise, repeated disclaimers, and generic claims about innovation or craftsmanship.
 
 Error copy states what happened, what remains safe, and the next action. Example: “Your layout couldn't be saved on this device. You can keep using JoeOS; changes may be lost after closing this tab.” Never display private diagnostics or secret-bearing URLs.
 
@@ -342,7 +342,7 @@ Each milestone should leave a usable application. Do not wait until the last mil
 | E — Personal publishing | Journal articles, archives, tags, RSS, professional project case studies | Direct URL reloads, readable mobile articles, metadata/feed validation |
 | F — Deep desktop | Process Monitor, notifications, workspace overview, app recovery | Lifecycle cleanup, focus restoration, workspace/process integration tests |
 | G — Homelab exhibit | Approved case studies, accessible conceptual diagrams, guided tours | No private requests or identifiers; diagram/text parity |
-| H — Delight | Optional boot, themes, contextual actions, Easter eggs; separate Marathon prototype | Performance/reduced-motion checks; game-specific gates if applicable |
+| H — Optional details | Optional boot, themes, contextual actions, Easter eggs; separate Marathon prototype | Performance/reduced-motion checks; game-specific gates if applicable |
 
 Milestones can be split further. Do not build every part of a milestone in one response when it prevents testing. Do not replace system work with decorative placeholders to report it complete.
 

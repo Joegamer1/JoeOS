@@ -24,4 +24,4 @@ Running the original Marathon in a browser is technically feasible. [Systemless]
 4. Verify hosting requirements against GitHub Pages, including asset paths and any isolation headers needed by the selected build. If required headers cannot be supplied, consider an independently hosted game origin with suitable headers. Do not change the main site's host preemptively.
 5. Verify iframe policy and permissions if embedding another host; a working public demo is not proof that embedding is supported. Prefer a reproducible deployment when distribution terms permit it.
 
-This adds a substantial personal and technical flourish without making the game a requirement for reading the website. Complete the core content and OS services first, then validate this as a bounded engineering milestone.
+I want to finish the core content and desktop services before trying a standalone Marathon prototype.

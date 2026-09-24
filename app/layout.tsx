@@ -7,7 +7,7 @@ import { siteUrl } from "@/lib/content/site";
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
   title: "JoeOS — Joe's personal workspace",
-  description: "Joe's personal website: writing, projects, and engineering notes in a browser-native workspace.",
+  description: "Joe's projects and writing, presented as a Linux-style desktop in your browser.",
   keywords: ["JoeOS", "cybersecurity", "homelab", "systems engineering", "portfolio"],
   robots: { index: true, follow: true },
 };
